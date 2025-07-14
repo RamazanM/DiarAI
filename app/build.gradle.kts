@@ -1,4 +1,7 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+val apiKey = gradleLocalProperties(rootDir,providers).getProperty("openrouter.key")
 
 plugins {
     alias(libs.plugins.android.application)
@@ -25,6 +28,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String","API_KEY",apiKey)
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(

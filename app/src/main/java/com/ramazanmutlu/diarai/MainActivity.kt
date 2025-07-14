@@ -30,7 +30,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-//    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
 }
 
 @Composable
