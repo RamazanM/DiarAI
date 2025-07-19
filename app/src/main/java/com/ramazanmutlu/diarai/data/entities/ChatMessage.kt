@@ -2,14 +2,14 @@ package com.ramazanmutlu.diarai.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.UUID
 
 enum class Sender { USER, ASSISTANT }
 
-@Entity(tableName = "messages")
+@Entity(tableName = "chat_messages")
 data class ChatMessage(
-    @PrimaryKey val id: String = UUID.randomUUID().toString(),
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val content: String,
     val timestamp: Long = System.currentTimeMillis(),
     val sender: Sender,
-    val content: String
+    val sessionId: String // Every Day is a session
 )
