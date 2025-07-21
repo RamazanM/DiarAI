@@ -27,6 +27,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures{
+        buildConfig = true
+    }
+
     buildTypes {
         debug {
             buildConfigField("String","API_KEY",apiKey)
@@ -58,6 +62,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.junit.ktx)
     testImplementation(libs.androidx.room.testing)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -78,6 +83,9 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.truth)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -86,4 +94,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 //    ksp(libs.hilt.android.compiler)
+    testImplementation(kotlin("test"))
 }
