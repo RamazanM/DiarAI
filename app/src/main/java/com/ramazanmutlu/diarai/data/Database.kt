@@ -1,21 +1,18 @@
 package com.ramazanmutlu.diarai.data
 
-import androidx.room.Dao
 import androidx.room.Database
-import androidx.room.Query
 import androidx.room.RoomDatabase
+import com.ramazanmutlu.diarai.data.dao.ChatDao
+import com.ramazanmutlu.diarai.data.dao.JournalDao
 import com.ramazanmutlu.diarai.data.entities.ChatMessage
+import com.ramazanmutlu.diarai.data.entities.JournalEntry
 
 @Database(
-    entities = [ChatMessage::class],
+    entities = [ChatMessage::class, JournalEntry::class],
     version = 1
 )
 abstract class Database : RoomDatabase() {
-    abstract fun getMessagesDAO(): MessageDAO
+    abstract fun getChatDao(): ChatDao
+    abstract fun getJournalDao(): JournalDao
 }
 
-@Dao
-interface MessageDAO {
-    @Query("SELECT * FROM messages")
-    suspend fun allMessages():List<ChatMessage>
-}
