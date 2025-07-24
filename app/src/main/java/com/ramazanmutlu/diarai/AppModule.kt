@@ -19,10 +19,11 @@ object AppModule {
     fun provideDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
         context = context,
         klass = Database::class.java, name = "DiarAiDb"
-    )
+    ).build()
+
 
     @Provides
-    fun provideRetrofit() =
+    fun provideRetrofit(): Retrofit =
         Retrofit.Builder().baseUrl("https://openrouter.ai/api/v1").addConverterFactory(
             GsonConverterFactory.create()
         ).build()

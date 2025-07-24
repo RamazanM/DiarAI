@@ -1,6 +1,7 @@
 package com.ramazanmutlu.diarai.data.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -19,4 +20,7 @@ interface ChatDao {
 
     @Query("DELETE FROM chat_messages WHERE timestamp < :date")
     suspend fun deleteOldChats(date: Long)
+
+    @Delete
+    suspend fun deleteChat(chat: ChatMessage)
 }
