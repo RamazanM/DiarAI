@@ -9,6 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -23,10 +24,18 @@ object AppModule {
 
 
     @Provides
-    fun provideRetrofit(): Retrofit =
-        Retrofit.Builder().baseUrl("https://openrouter.ai/api/v1").addConverterFactory(
-            GsonConverterFactory.create()
-        ).build()
+    fun provideRetrofit(): Retrofit {
+        val client = OkHttpClient.Builder().addInterceptor {
+            val request = it.request().newBuilder()
+                .addHeader("Authorization", "Bearer ${BuildConfig.API_KEY}").build()
+            it.proceed(request)
+        }.build()
+
+        return Retrofit.Builder().baseUrl("https://openrouter.ai/api/v1").client(client)
+            .addConverterFactory(
+                GsonConverterFactory.create()
+            ).build()
+    }
 
     @Provides
     fun provideOpenRouterService(retrofit: Retrofit) =
