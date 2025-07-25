@@ -38,6 +38,6 @@ object AppModule {
     }
 
     @Provides
-    fun provideOpenRouterService(retrofit: Retrofit) =
+    fun provideOpenRouterService(retrofit: Retrofit): OpenRouterService =
         retrofit.create(OpenRouterService::class.java)
 }
