@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ramazanmutlu.diarai.data.dao.ChatDao
-import com.ramazanmutlu.diarai.data.entities.ChatMessage
+import com.ramazanmutlu.diarai.data.entities.DbChatMessage
 import com.ramazanmutlu.diarai.data.entities.Sender
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -43,12 +43,11 @@ class ChatDaoTest {
     @OptIn(ExperimentalTime::class)
     @Test
     fun insertAndFetchChat() = runTest {
-        val chat = ChatMessage(
+        val chat = DbChatMessage(
             content = "Hello!",
             timestamp = "2025-07-15".toLongDate(),
             id = 0,
             sender = Sender.USER,
-            sessionId = "1"
         )
         chatDao.insert(chat)
         val lastChats = chatDao.getLastChats(10)
@@ -60,13 +59,11 @@ class ChatDaoTest {
 
     @Test
     fun deleteOldChatsTest() = runTest {
-        val old = ChatMessage(
+        val old = DbChatMessage(
             content = "old", timestamp = "2024-12-01".toLongDate(), sender = Sender.USER,
-            sessionId = "1",
         )
-        val recent = ChatMessage(
+        val recent = DbChatMessage(
             content = "new", timestamp = "2025-12-01".toLongDate(), sender = Sender.USER,
-            sessionId = "1",
         )
         chatDao.insert(old)
         chatDao.insert(recent)

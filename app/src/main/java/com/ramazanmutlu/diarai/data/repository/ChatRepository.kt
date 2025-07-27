@@ -1,21 +1,21 @@
 package com.ramazanmutlu.diarai.data.repository
 
 import com.ramazanmutlu.diarai.data.Database
-import com.ramazanmutlu.diarai.data.entities.ChatMessage
+import com.ramazanmutlu.diarai.data.entities.DbChatMessage
 import javax.inject.Inject
 
-class ChatRepository @Inject constructor(private val database: Database) {
+class ChatRepository @Inject constructor(database: Database) {
     val chatDao = database.getChatDao()
 
-    suspend fun addMessage(message: ChatMessage) {
+    suspend fun addMessage(message: DbChatMessage) {
         chatDao.insert(message)
     }
 
-    suspend fun getChatsByDate(date: Long): List<ChatMessage> {
+    suspend fun getChatsByDate(date: Long): List<DbChatMessage> {
         return chatDao.getChatsByDate(date)
     }
 
-    suspend fun getLastChats(count: Int): List<ChatMessage> {
+    suspend fun getLastChats(count: Int): List<DbChatMessage> {
         return chatDao.getLastChats(count)
     }
 
@@ -23,8 +23,8 @@ class ChatRepository @Inject constructor(private val database: Database) {
         chatDao.deleteOldChats(date)
     }
 
-    suspend fun deleteChat(chatMessage: ChatMessage){
-        chatDao.deleteChat(chatMessage)
+    suspend fun deleteChat(dbChatMessage: DbChatMessage){
+        chatDao.deleteChat(dbChatMessage)
     }
 
 

@@ -6,10 +6,9 @@ import androidx.room.PrimaryKey
 enum class Sender { USER, ASSISTANT }
 
 @Entity(tableName = "chat_messages")
-data class ChatMessage(
+data class DbChatMessage(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val content: String,
     val timestamp: Long = System.currentTimeMillis(),
     val sender: Sender,
-    val sessionId: String // Every Day is a session
 )

@@ -4,11 +4,11 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.ramazanmutlu.diarai.data.dao.ChatDao
 import com.ramazanmutlu.diarai.data.dao.JournalDao
-import com.ramazanmutlu.diarai.data.entities.ChatMessage
+import com.ramazanmutlu.diarai.data.entities.DbChatMessage
 import com.ramazanmutlu.diarai.data.entities.JournalEntry
 
 @Database(
-    entities = [ChatMessage::class, JournalEntry::class],
+    entities = [DbChatMessage::class, JournalEntry::class],
     version = 1
 )
 abstract class Database : RoomDatabase() {
