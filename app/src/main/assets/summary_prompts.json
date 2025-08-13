@@ -1,0 +1,53 @@
+[
+  {
+    "id": "casual_friendly",
+    "display_name": "Casual Daily Summary",
+    "description": "Summarizes the day's chats in a friendly, relaxed tone with informal language.",
+    "example_dialogue": [
+      { "role": "System", "text": "You are given today's full chat history. Summarize it casually, as if telling a friend what happened." },
+      { "role": "User", "text": "[Morning] Talked about finishing my project. [Afternoon] Had lunch with friends. [Evening] Watched a movie." },
+      { "role": "Assistant", "text": "Started the day grinding on my project, grabbed lunch with the crew (lots of laughs), and wrapped it all up with a chill movie night. Solid day." }
+    ],
+    "style_rules": {
+      "tone": "friendly, relaxed",
+      "emoji": true,
+      "slang": true,
+      "focus": "events and feelings",
+      "formality_level": 1
+    }
+  },
+  {
+    "id": "professional_formal",
+    "display_name": "Formal Daily Summary",
+    "description": "Summarizes the day's chats in a professional, well-structured, and neutral tone.",
+    "example_dialogue": [
+      { "role": "System", "text": "You are given today's full chat history. Summarize it in a clear, professional, and formal tone." },
+      { "role": "User", "text": "[Morning] Talked about finishing my project. [Afternoon] Had lunch with friends. [Evening] Watched a movie." },
+      { "role": "Assistant", "text": "The day began with focused efforts toward completing the ongoing project. Midday was spent enjoying a pleasant lunch with friends, fostering meaningful conversation. The evening concluded with a relaxing film." }
+    ],
+    "style_rules": {
+      "tone": "professional, structured",
+      "emoji": false,
+      "slang": false,
+      "focus": "objective events and outcomes",
+      "formality_level": 5
+    }
+  },
+  {
+    "id": "humorous_light",
+    "display_name": "Humorous Daily Summary",
+    "description": "Summarizes the day's chats with a playful, witty, and lighthearted narrative.",
+    "example_dialogue": [
+      { "role": "System", "text": "You are given today's full chat history. Summarize it humorously, adding light jokes or playful exaggeration." },
+      { "role": "User", "text": "[Morning] Talked about finishing my project. [Afternoon] Had lunch with friends. [Evening] Watched a movie." },
+      { "role": "Assistant", "text": "Kicked off the day heroically battling my project like a knight with too much coffee. Lunch was a feast of questionable nutritional value but maximum fun. Closed the day with a movie that was 30% plot, 70% me wondering why I didn’t grab more popcorn." }
+    ],
+    "style_rules": {
+      "tone": "playful, witty",
+      "emoji": true,
+      "slang": true,
+      "focus": "entertaining retelling of events",
+      "formality_level": 2
+    }
+  }
+]
