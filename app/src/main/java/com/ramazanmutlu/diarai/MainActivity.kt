@@ -23,6 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DiarAiTheme(dynamicColor = false) {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+
                     ChatScreen(Modifier.padding(innerPadding))
                 }
             }
