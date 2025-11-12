@@ -1,4 +1,4 @@
-package com.ramazanmutlu.diarai.ui.screen
+package com.ramazanmutlu.diarai.presentation.ui.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -34,7 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ramazanmutlu.diarai.data.entities.Sender
 import com.ramazanmutlu.diarai.domain.model.Message
-import com.ramazanmutlu.diarai.ui.theme.DiarAiTheme
+import com.ramazanmutlu.diarai.presentation.ui.theme.DiarAiTheme
 
 
 @Composable
@@ -140,79 +140,98 @@ fun MessageListPreview() {
 
 val testMessages = listOf(
     Message(
-        "Selam, günün nasıl geçti?",
+        id = 1,
+        content = "Hi, how was your day?",
         sender = Sender.USER
     ),
     Message(
-        "Selam! Fena değildi, biraz çalıştım. Seninki nasıldı?",
+        id = 2,
+        content = "Hi! Not bad, I worked a bit. How about yours?",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Yoğundu, ama işlerimi bitirdim.",
+        id = 3,
+        content = "It was busy, but I finished my work.",
         sender = Sender.USER
     ),
     Message(
-        "Güzel, akşam için planın var mı?",
+        id = 4,
+        content = "Nice, do you have any plans for the evening?",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Belki biraz oyun oynarım.",
+        id = 5,
+        content = "Maybe I’ll play some games.",
         sender = Sender.USER
     ),
     Message(
-        "Hangi oyunları seviyorsun?",
+        id = 6,
+        content = "What kind of games do you like?",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Genelde RPG ve macera oyunları.",
+        id = 7,
+        content = "Usually RPG and adventure games.",
         sender = Sender.USER
     ),
     Message(
-        "Baldur’s Gate 3’ü denedin mi?",
+        id = 8,
+        content = "Have you tried Baldur’s Gate 3?",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Evet, hatta bitirdim.",
+        id = 9,
+        content = "Yes, I’ve even finished it.",
         sender = Sender.USER
     ),
     Message(
-        "Harika! Peki kitap okur musun?",
+        id = 10,
+        content = "Awesome! Do you read books?",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Evet, genelde bilim kurgu okuyorum.",
+        id = 11,
+        content = "Yes, I usually read science fiction.",
         sender = Sender.USER
     ),
     Message(
-        "O zaman Isaac Asimov’u seviyorsundur.",
+        id = 12,
+        content = "Then you must like Isaac Asimov.",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Kesinlikle, özellikle Vakıf serisi favorim.",
+        id = 13,
+        content = "Absolutely, the Foundation series is my favorite.",
         sender = Sender.USER
     ),
     Message(
-        "Ben de severim. Peki kahve mi çay mı?",
+        id = 14,
+        content = "I love it too. So, coffee or tea?",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Kesinlikle kahve!",
+        id = 15,
+        content = "Definitely coffee!",
         sender = Sender.USER
     ),
     Message(
-        "Sabahları kahve içmeden başlayamayanlardan mısın?",
+        id = 16,
+        content = "Are you one of those who can’t start the day without coffee?",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Aynen öyle.",
+        id = 17,
+        content = "Exactly.",
         sender = Sender.USER
     ),
     Message(
-        "Ben de aynıyım, kahve ruhun yakıtı gibi 😄",
+        id = 18,
+        content = "Me too, coffee is like fuel for the soul 😄",
         sender = Sender.ASSISTANT
     ),
     Message(
-        "Aynen, kahvesiz bir günüm eksik hissediliyor.",
+        id = 19,
+        content = "Totally, a day without coffee feels incomplete.",
         sender = Sender.USER
     )
 )

@@ -1,4 +1,4 @@
-package com.ramazanmutlu.diarai.ui.screen
+package com.ramazanmutlu.diarai.presentation.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,7 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ramazanmutlu.diarai.data.dto.ConversationStyle
 import com.ramazanmutlu.diarai.data.dto.StyleRules
-import com.ramazanmutlu.diarai.ui.theme.DiarAiTheme
+import com.ramazanmutlu.diarai.presentation.ui.theme.DiarAiTheme
 
 @Composable
 fun StyleSelectionScreen(modifier: Modifier = Modifier, styles: List<ConversationStyle>) {

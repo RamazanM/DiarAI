@@ -1,4 +1,4 @@
-package com.ramazanmutlu.diarai.ui.theme
+package com.ramazanmutlu.diarai.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
