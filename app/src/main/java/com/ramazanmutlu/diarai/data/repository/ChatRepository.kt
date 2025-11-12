@@ -23,8 +23,8 @@ class ChatRepository @Inject constructor(database: Database) {
         chatDao.deleteOldChats(date)
     }
 
-    suspend fun deleteChat(dbChatMessage: DbChatMessage){
-        chatDao.deleteChat(dbChatMessage)
+    suspend fun deleteChat(messageId: Int){
+        chatDao.deleteChat(messageId)
     }
 
 

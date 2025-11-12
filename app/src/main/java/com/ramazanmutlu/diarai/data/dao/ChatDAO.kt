@@ -22,5 +22,5 @@ interface ChatDao {
     suspend fun deleteOldChats(date: Long)
 
     @Delete
-    suspend fun deleteChat(chat: DbChatMessage)
+    suspend fun deleteChat(chatId: Int)
 }
