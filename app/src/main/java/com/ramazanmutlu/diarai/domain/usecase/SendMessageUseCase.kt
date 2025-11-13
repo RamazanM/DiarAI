@@ -9,7 +9,7 @@ import com.ramazanmutlu.diarai.data.entities.Sender
 import com.ramazanmutlu.diarai.data.request.ChatCompletionRequest
 import com.ramazanmutlu.diarai.data.request.ChatMessage
 import com.ramazanmutlu.diarai.data.response.ChatMessageResponse
-import com.ramazanmutlu.diarai.util.todayLong
+import com.ramazanmutlu.diarai.util.getStartOfTodayTimestamp
 import java.util.Date
 import javax.inject.Inject
 
@@ -22,13 +22,14 @@ class SendMessageUseCase @Inject constructor(
         database.getChatDao().insert(
             DbChatMessage(
                 content = message,
-                sender = Sender.USER
+                sender = Sender.USER,
+                timestamp = Date().time
             )
         )
 
 
 
-        val messages = database.getChatDao().getChatsByDate(todayLong)
+        val messages = database.getChatDao().getChatsByDate(getStartOfTodayTimestamp())
 
         val response = service.chatCompletion(
             ChatCompletionRequest(

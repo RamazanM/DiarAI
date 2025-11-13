@@ -1,19 +1,18 @@
 package com.ramazanmutlu.diarai.util
 
-import android.annotation.SuppressLint
-import android.os.Build
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.util.Date
+import java.util.Calendar
+import java.util.TimeZone
 
-@SuppressLint("SimpleDateFormat")
-val todayLong: Long = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-    LocalDate.now().toEpochDay()
-} else {
-    val formatter: DateFormat = SimpleDateFormat("dd/MM/yyyy")
+fun getStartOfTodayTimestamp(): Long {
+    // Use a Calendar instance set to the UTC timezone
+    val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
 
-    val today = Date()
+    // Reset the time to the beginning of the day
+    calendar.set(Calendar.HOUR_OF_DAY, 0)
+    calendar.set(Calendar.MINUTE, 0)
+    calendar.set(Calendar.SECOND, 0)
+    calendar.set(Calendar.MILLISECOND, 0)
 
-    formatter.parse(formatter.format(today))?.time ?: Date().time
+    // Return the time in milliseconds
+    return calendar.time.time
 }
