@@ -1,7 +1,6 @@
 package com.ramazanmutlu.diarai.data.dao
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -12,7 +11,7 @@ interface ChatDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(chat: DbChatMessage)
 
-    @Query("SELECT * FROM chat_messages WHERE timestamp = :date ORDER BY timestamp ASC")
+    @Query("SELECT * FROM chat_messages WHERE timestamp >= :date ORDER BY timestamp ASC")
     suspend fun getChatsByDate(date: Long): List<DbChatMessage>
 
     @Query("SELECT * FROM chat_messages ORDER BY timestamp ASC LIMIT :count")
@@ -21,6 +20,6 @@ interface ChatDao {
     @Query("DELETE FROM chat_messages WHERE timestamp < :date")
     suspend fun deleteOldChats(date: Long)
 
-    @Delete
+    @Query("DELETE FROM chat_messages WHERE id = :chatId")
     suspend fun deleteChat(chatId: Int)
 }
